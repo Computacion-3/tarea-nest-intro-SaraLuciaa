@@ -3,10 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { RolesService } from './roles/roles.service';
-import { RolesController } from './roles/roles.controller';
-import { UsersService } from './users/users.service';
-import { UsersController } from './users/users.controller';
+import { UsersModule } from './users/users.module';
+import { RolesModule } from './roles/roles.module';
 
 type SupportedDbTypes =
     | 'mysql'
@@ -33,8 +31,10 @@ type SupportedDbTypes =
                 synchronize: configService.get<boolean>('DB_SYNCHRONIZE') ?? false,
             }),
         }),
+        UsersModule,
+        RolesModule,
     ],
-    controllers: [AppController, RolesController, UsersController],
-    providers: [AppService, RolesService, UsersService],
+    controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}
