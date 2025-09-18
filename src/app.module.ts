@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { RolesService } from './roles/roles.service';
 import { RolesController } from './roles/roles.controller';
 import { UsersService } from './users/users.service';
+import { UsersController } from './users/users.controller';
 
 type SupportedDbTypes =
     | 'mysql'
@@ -33,7 +34,7 @@ type SupportedDbTypes =
             }),
         }),
     ],
-    controllers: [AppController, RolesController],
+    controllers: [AppController, RolesController, UsersController],
     providers: [AppService, RolesService, UsersService],
 })
 export class AppModule {}
