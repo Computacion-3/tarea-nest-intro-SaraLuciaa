@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { RolesService } from './roles/roles.service';
 
 type SupportedDbTypes =
     | 'mysql'
@@ -31,6 +32,6 @@ type SupportedDbTypes =
         }),
     ],
     controllers: [AppController],
-    providers: [AppService],
+    providers: [AppService, RolesService],
 })
 export class AppModule {}
