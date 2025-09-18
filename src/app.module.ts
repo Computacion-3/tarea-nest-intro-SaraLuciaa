@@ -4,6 +4,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RolesService } from './roles/roles.service';
+import { RolesController } from './roles/roles.controller';
+import { UsersService } from './users/users.service';
 
 type SupportedDbTypes =
     | 'mysql'
@@ -31,7 +33,7 @@ type SupportedDbTypes =
             }),
         }),
     ],
-    controllers: [AppController],
-    providers: [AppService, RolesService],
+    controllers: [AppController, RolesController],
+    providers: [AppService, RolesService, UsersService],
 })
 export class AppModule {}
