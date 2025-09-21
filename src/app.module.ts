@@ -31,7 +31,7 @@ type SupportedDbTypes =
                 password: configService.get<string>('DB_PASSWORD') ?? 'postgres',
                 database: configService.get<string>('DB_DATABASE') ?? 'mydatabase',
                 entities: [__dirname + '/**/*.entity{.ts,.js}'],
-                synchronize: configService.get<boolean>('DB_SYNCHRONIZE') ?? false,
+                synchronize: configService.get<boolean>('DB_SYNCHRONIZE') ?? true,
             }),
         }),
         UsersModule,
