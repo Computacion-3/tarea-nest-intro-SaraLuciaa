@@ -6,7 +6,9 @@ import {
     CreateDateColumn,
     ManyToOne,
     JoinColumn,
+    OneToMany,
 } from 'typeorm';
+import { Game } from '../../games/entities/game.entity';
 
 @Entity('users')
 export class User {
@@ -31,4 +33,6 @@ export class User {
     @ManyToOne(() => Role, (role) => role.users, { eager: true })
     @JoinColumn({ name: 'role_id' })
     role: Role;
+    @OneToMany(() => Game, (game) => game.user)
+    games: Game[];
 }

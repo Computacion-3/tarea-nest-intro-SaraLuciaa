@@ -5,8 +5,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
-import { GamesService } from './games/games.service';
-import { GamesController } from './games/games.controller';
 import { GamesModule } from './games/games.module';
 
 type SupportedDbTypes =
@@ -38,7 +36,7 @@ type SupportedDbTypes =
         RolesModule,
         GamesModule,
     ],
-    controllers: [AppController, GamesController],
-    providers: [AppService, GamesService],
+    controllers: [AppController],
+    providers: [AppService],
 })
 export class AppModule {}
